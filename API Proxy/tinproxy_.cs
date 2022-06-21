@@ -84,7 +84,7 @@ namespace tinproxy
         // get url
         public string getUrl (int number)
         {
-            string auth = "?api_key=" + token + "&authen_ips=" + string.Join(",", allow_ip);
+            string auth = allow_ip != null ? "?api_key=" + token + "&authen_ips=" + string.Join(",", allow_ip) : "?api_key=" + token;
             return number == 1 ? GetNew_Proxy + auth : GetCurrent_Proxy + auth;
         }
 
